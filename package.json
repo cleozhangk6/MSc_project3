@@ -1,0 +1,31 @@
+{
+  "name": "tryexpress",
+  "version": "1.0.0",
+  "description": "web server for msc project 3",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cleozhangk6/MSc_project3.git"
+  },
+  "keywords": [
+    "af",
+    "domaining",
+    "server"
+  ],
+  "author": "Cleo Zhang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cleozhangk6/MSc_project3/issues"
+  },
+  "homepage": "https://github.com/cleozhangk6/MSc_project3#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "express-fileupload": "^1.4.0"
+  }
+}
