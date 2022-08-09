@@ -35,7 +35,12 @@ app.post('/', async (req, res) => {
         console.log(req.files)
         var file = req.files.file
         var filename = await file.name
-        var uniprot = await filename.split('-')[1]
+        if (filename.startsWith("AF-")) {
+            var uniprot = await filename.split('-')[1]
+        } else {
+            var uniprot = "Unnamed Structure"
+        }
+
         console.log(filename)
 
         await file.mv('./uploads/'+filename,  async (err) => {

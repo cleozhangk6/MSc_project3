@@ -5,7 +5,7 @@ module load suhail python/3.8.5
 rm public/*.jpg
 cd outputs
 rm *
-../parse_mmcif_to_domains_new.py ../uploads/$1
+../segment_alphafold.py ../uploads/$1
 
 # Create summary of domain info
 for i in *
@@ -25,6 +25,6 @@ module load pymol
 pymol ../uploads/$1 -d zoom -c colbydom.pml -g colbydom.png
 convert -quality 75% colbydom.png ../public/colbydom.jpg
 
-
+rm ../uploads/*
 
 # get ../af_files_cif/AF-P16114-F1-model_v2.cif example_cif/.
