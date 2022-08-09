@@ -1,0 +1,25 @@
+<h1> Model: <%= data.userQuery %></h1>
+
+<p> Number of domains: <%= data.searchResults.length %> </p>
+
+
+<table>
+    <tr>
+      <th>Domain</th>
+      <th>Start</th>
+      <th>End</th>
+    </tr>
+  
+    <% for (var i = 0; i < data.searchResults.length; i++) { %>
+      <tr>
+        <td><%= data.searchResults[i].Domain %></td>
+        <td><%= data.searchResults[i].Start %></td>
+        <td><%= data.searchResults[i].End %></td>
+      </tr>    
+    <% } %>
+  </table>
+
+<img src="colbydom.jpg" />
+
+<!-- <button type="submit" value="home" formaction="/index.html"></button> -->
+

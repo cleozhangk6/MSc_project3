@@ -1,0 +1,6 @@
+UNIPROTCHAIN    1 LABEL A : RES  ID       7  To    148  : NONE                                                             
+UNIPROTCHAIN    1 LABEL B : RES  ID     172  To    244  : NONE                                                             
+UNIPROTCHAIN    1 LABEL C : RES  ID     278  To    348  : NONE                                                             
+UNIPROTCHAIN    1 LABEL D : RES  ID     378  To    445  : NONE                                                             
+UNIPROTCHAIN    1 LABEL E : RES  ID     489  To   1145  : NONE                                                             
+UNIPROTCHAIN    1 LABEL F : RES  ID    1179  To   1433  : NONE                                                             

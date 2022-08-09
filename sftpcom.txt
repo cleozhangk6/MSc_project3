@@ -1,0 +1,11 @@
+ssh mz5318@msc.bc.ic.ac.uk
+sftp mz5318@msc.bc.ic.ac.uk
+
+cd project3/webserve
+
+module load node/16.16
+node index.js
+
+put index_copy.js index.js
+put views/result.ejs views/.
+put summary_to_pml.py

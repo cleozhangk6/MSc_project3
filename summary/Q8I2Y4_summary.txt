@@ -1,0 +1,2 @@
+UNIPROTCHAIN    1 LABEL A : RES  ID     104  To    162  : NONE                                                             
+UNIPROTCHAIN    1 LABEL B : RES  ID     268  To    332  : NONE                                                             
