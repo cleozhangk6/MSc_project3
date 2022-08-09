@@ -9,3 +9,4 @@ node index.js
 put index_copy.js index.js
 put views/result.ejs views/.
 put summary_to_pml.py
+put run_pase.sh .

@@ -8,6 +8,7 @@ rm *
 ../segment_alphafold.py ../uploads/$1
 
 # Create summary of domain info
+rm temp.pdb
 for i in *
 do
 CODE=`echo $i | cut -d_ -f1`
@@ -18,13 +19,11 @@ echo summary file created
 
 # Python process domain info and create .pml file
 FILENAME=`find *summary.txt`
-python ../summary_to_pml.py $FILENAME
+python ../summary_to_pml.py $FILENAME $1
 
-# Create PyMol Image
-module load pymol
-pymol ../uploads/$1 -d zoom -c colbydom.pml -g colbydom.png
-convert -quality 75% colbydom.png ../public/colbydom.jpg
+# # Create PyMol Image
+# module load pymol
+# pymol ../uploads/$1 -d zoom -c colbydom.pml -g colbydom.png
+# convert -quality 75% colbydom.png ../public/colbydom.jpg
 
 rm ../uploads/*
-
-# get ../af_files_cif/AF-P16114-F1-model_v2.cif example_cif/.
