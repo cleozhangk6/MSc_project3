@@ -43,7 +43,7 @@ app.post('/', (req, res) => {
 
         console.log(filename)
 
-        file.mv('./uploads/'+filename, (err) => {
+        file.mv('./public/uploads/'+filename, (err) => {
             if (err) {
                 res.send(err)
             } else {
@@ -61,7 +61,7 @@ app.post('/', (req, res) => {
         
                 parse.on('close', (code) => {
                     console.log(`child process exited with code ${code}`);                    
-                    fs.readFile(`outputs/domains_info.json`, 'utf8', (err, dataTxt) => {
+                    fs.readFile(`public/outputs/domains_info.json`, 'utf8', (err, dataTxt) => {
                         if (err) {
                             console.error(err);
                             return;
