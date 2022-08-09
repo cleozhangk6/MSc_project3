@@ -30,20 +30,20 @@ app.set('view engine', 'ejs');
 // })
 
 
-app.post('/', async (req, res) => {
+app.post('/', (req, res) => {
     if (req.files) {
         console.log(req.files)
         var file = req.files.file
-        var filename = await file.name
+        var filename = file.name
         if (filename.startsWith("AF-")) {
-            var uniprot = await filename.split('-')[1]
+            var uniprot = filename.split('-')[1]
         } else {
             var uniprot = "Unnamed Structure"
         }
 
         console.log(filename)
 
-        await file.mv('./uploads/'+filename,  async (err) => {
+        file.mv('./uploads/'+filename, (err) => {
             if (err) {
                 res.send(err)
             } else {
@@ -51,7 +51,7 @@ app.post('/', async (req, res) => {
                 // res.redirect("results.html");
                 const parse = execFile('./run_parse.sh', [filename]);
                 
-                parse.stdout.on('data', async (data) => {
+                parse.stdout.on('data', (data) => {
                     console.log(`stdout: ${data}`);
                 });
 
@@ -59,7 +59,7 @@ app.post('/', async (req, res) => {
                     console.error(`stderr: ${data}`);
                 });
         
-                parse.on('close', async (code) => {
+                parse.on('close', (code) => {
                     console.log(`child process exited with code ${code}`);                    
                     fs.readFile(`outputs/domains_info.json`, 'utf8', (err, dataTxt) => {
                         if (err) {
