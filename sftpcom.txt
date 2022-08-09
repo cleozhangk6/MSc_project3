@@ -8,9 +8,5 @@ node index.js
 
 put index_copy.js index.js
 put views/result.ejs views/.
-put summary_to_pml.py
+put public/summary_to_pml.py public/.
 put run_parse.sh
-
-
-put summary_to_pml.py public/.
-put run_parse.sh public/.
