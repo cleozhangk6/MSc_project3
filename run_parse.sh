@@ -5,7 +5,7 @@ module load suhail python/3.8.5
 rm public/*.jpg
 cd outputs
 rm *
-../segment_alphafold.py ../uploads/$1
+../parse_mmcif_to_domains_new.py ../uploads/$1
 
 # Create summary of domain info
 for i in *
