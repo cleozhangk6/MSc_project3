@@ -3,6 +3,8 @@ const { execFile } = require('child_process');  // child process module allows t
 const upload = require('express-fileupload');  // module allows file upload
 const { response } = require('express');
 const fs = require('fs');  // read file
+const bodyParser = require('body-parser');
+
 
 const app = express();  // create the app
 var port = 20236
@@ -11,23 +13,57 @@ app.listen(port, host, () => console.log(`Listening at port ${port}... Go to htt
 app.use(express.static('public'));
 app.use(upload())
 app.use(express.json())
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 // app.get('/', (req, res) => {
 //     res.sendFile(__dirname + 'index.html')
 // })
 
 app.set('view engine', 'ejs');
-// app.get('/:userQuery', (req, res)=>{
-//     fs.readFile(`summary/${req.params.userQuery}_summary.txt`, 'utf8', (err, dataTxt) => {
-//         if (err) {
-//             console.error(err);
-//             return;
-//         }
-//         // console.log(dataTxt);
-//         res.render('result', {data : {userQuery: req.params.userQuery,
-//                                 searchResults : dataTxt.split(/\r?\n/).slice(0,-1)}})
-//     });
-// })
+
+
+app.get('/index.html', (req, res)=>{
+    res.sendFile(__dirname+"/"+"index.html");
+})
+app.get('/search', (req, res)=>{
+    var uniprot = req.query.uniprot;
+    var filename = "AF-" + uniprot + "-F1-model_v2.pdb"
+    console.log(filename)
+    
+    fs.copyFile('./af_files/'+filename, './public/uploads/'+filename, (err) => {
+        if (err) {
+            res.send(err)
+        } else {
+            // res.send("File Uploaded");
+            // res.redirect("results.html");
+            const parse = execFile('./run_parse.sh', [filename]);
+            
+            parse.stdout.on('data', (data) => {
+                console.log(`stdout: ${data}`);
+            });
+
+            parse.stderr.on('data', (data) => {
+                console.error(`stderr: ${data}`);
+            });
+    
+            parse.on('close', (code) => {
+                console.log(`child process exited with code ${code}`);                    
+                fs.readFile(`public/outputs/domains_info.json`, 'utf8', (err, dataTxt) => {
+                    if (err) {
+                        console.error(err);
+                        return;
+                    }
+                    // const dataJson = JSON.parse(dataTxt)
+                    res.render('result', {data : {userQuery: uniprot,
+                                            searchResults : JSON.parse(dataTxt)
+                                            }})
+                });
+            });    
+        }
+    })
+    
+})
 
 
 app.post('/', (req, res) => {
