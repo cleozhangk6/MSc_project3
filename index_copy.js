@@ -74,7 +74,7 @@ app.post('/', (req, res) => {
         if (filename.startsWith("AF-")) {
             var uniprot = filename.split('-')[1]
         } else {
-            var uniprot = "Unnamed Structure"
+            var uniprot = "Unknown"
         }
 
         console.log(filename)

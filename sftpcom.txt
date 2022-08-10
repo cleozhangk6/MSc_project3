@@ -11,3 +11,12 @@ put views/result.ejs views/.
 put public/summary_to_pml.py public/.
 put run_parse.sh
 put public/index.html public/.
+
+
+put -r public/images public/.
+put public/example.cif public/.
+put public/example.html public/.
+
+put public/index.html public/.
+put public/styles.css public/.
+put public/scripts.js public/.

@@ -1,20 +1,27 @@
 #!/bin/sh
 
 # Run AFsegment
-module load suhail python/3.8.5
+module load python/3.8.5
 cd public/outputs
 rm *
 ../segment_alphafold.py ../uploads/$1
 
 # Create summary of domain info
 rm temp.pdb
+# for i in *
+# do
+# CODE=`echo $i | cut -d_ -f1`
+# FILENAME=${CODE}_summary.txt
+# pdbinfo $i | grep UNIP >> ${FILENAME}
+# done
+# echo summary file created
 for i in *
 do
 CODE=`echo $i | cut -d_ -f1`
 FILENAME=${CODE}_summary.txt
-pdbinfo $i | grep UNIP >> ${FILENAME}
+echo $i | cut -d. -f1 >> ${FILENAME}
 done
-echo summary file created
+echo summary file created without pdbinfo
 
 # Python process domain info and create .pml file
 FILENAME=`find *summary.txt`

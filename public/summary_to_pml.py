@@ -12,11 +12,17 @@ summary_file = sys.argv[1]
 input_file = sys.argv[2]
 with open(summary_file) as file:
 # with open('P43238_summary.txt') as file:
+    # for line in file.readlines():
+    #     cols = line.split()
+    #     domains.append(cols[3]) # domain name
+    #     starts.append(cols[7]) # start position
+    #     ends.append(cols[9]) # end position
+    #     colors.append("null")
     for line in file.readlines():
-        cols = line.split()
-        domains.append(cols[3]) # domain name
-        starts.append(cols[7]) # start position
-        ends.append(cols[9]) # end position
+        cols = line.split('_')
+        domains.append("null") # domain name
+        starts.append(cols[1]) # start position
+        ends.append(cols[2]) # end position
         colors.append("null")
 
 domains_af = pd.DataFrame({
@@ -26,6 +32,9 @@ domains_af = pd.DataFrame({
         'Color': colors},
         index=None)
 
+domains_af.Start = domains_af.Start.astype(int)
+domains_af.sort_values(by=['Start'], inplace=True)
+domains_af.Start = domains_af.Start.astype(str)
 # # Create .pml commands to color domain
 # with open('colbydom.pml','w') as f:
 #     f.write('color gray, all')
@@ -55,14 +64,16 @@ pymol_colors = [('white', 0), ('black', 1), ('blue', 2), ('green', 3), ('red', 4
 with open('../myJmolscript.spt','w') as f:
     f.write('load uploads/' + input_file + '; cartoon ONLY')
     i = 2
+    ii = 65
     for index, row in domains_af.iterrows():
         drange = str(row['Start']) + '-' + str(row['End'])
-        dname = row['Domain']
+        row['Domain'] = chr(ii)
         row['Color'] = pymol_colors[i][0]
         f.write(
         '; select ' + drange + 
         '; color ' + pymol_colors[i][0])
         i += 1 if i!=6 else 2  # skip as 6 and 7 same color
+        ii +=1
 
 
 # domains_af.to_csv('domain_info.txt', header=None, index=None, sep=' ', mode='a')

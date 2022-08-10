@@ -1,12 +1,79 @@
-<h1>Input an UniProt ID:</h1>
-<form method="GET" action="/search">
-    <input type="text" name="uniprot"/>
-    <input type="submit" value="Search"/>
-</form>
-<h2>Or</h2>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AF-SEGMENT | Home</title>
+        <meta name="description" content="Welcome to AF-SEGMENT">
+        <link rel="stylesheet" href="styles.css" />
+        <script src="https://kit.fontawesome.com/777bbb3675.js" crossorigin="anonymous"></script>
+    </head>
 
-<h1>Upload an AlphaFold model (.cif)</h1>
-<form method="POST" action="/" enctype="multipart/form-data">
-    <input type="file" name="file"/>
-    <input type="submit" value="Upload"/>
-</form>
+<body>
+
+    <section class="home-header">
+        <div class="hero">
+            <a href="index.html"><div class="container"></div></a>
+        </div>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="example.html">Example</a></li>
+                <li><a>About</a></li>
+            </ul>
+        </nav>
+    </section>
+
+    <section class="home-body">
+        <div class="flex-container">
+            <div class="flex-child">
+                <div class="home-left">
+                    <div class="container">
+                        <p>AF-SEGMENT is a web server that automatically segments a given AlphaFold model into confident sub-structures and provides visualisation of the results in 3D.</p> 
+                        <p>Start your calculation by either searching a Uniprot ID to retrieve the AlphaFold model or uploading a structural file that is in the PDB or mmCIF format.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-child">
+                <div class="home-right">
+                    <div class="container top">
+                        <label for="input-uniprot">Input a UniProt ID:</label>
+                        <form method="GET" action="/search">
+                            <input id="input-uniprot" type="text" name="uniprot"/>
+                            <input class="submit-btn" type="submit" value="Submit"/>
+                        </form>
+                        <p id="example">e.g.
+                            <a onclick="populate_uniprot('P43238')">P43238</a>,
+                            <a onclick="populate_uniprot('P29376')">P29376</a>,
+                            <a onclick="populate_uniprot('P07664')">P07664</a>, etc.
+                        </p>
+                    </div>
+                    <div class="container bottom">
+                        <label>...or upload an AlphaFold model:</label>
+                        <form method="POST" action="/" enctype="multipart/form-data">
+                            <input type="file" name="file"/>
+                            <input class="submit-btn" type="submit" value="Submit"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <script src="scripts.js"></script>
+</body>
+
+<hr color="#86CD7D">
+
+<footer>
+    <div class="container">
+      <span id="msc_left">MSc Bioinformatics and Systems Biology</span>
+      <img id="ic_logo_right" src="images/Imperial.png" width="200">
+    </div>
+</footer>
+
+</html>
+
+
+
+
+

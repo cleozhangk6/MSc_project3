@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>AF-SEGMENT | Results</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://kit.fontawesome.com/777bbb3675.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="jsmol/JSmol.min.js"></script>
+</head>
+
+<body>
+
+    <section class="results-header">
+        <div class="hero">
+            <a href="index.html"><div class="container"></div></a>
+        </div>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="example.html">Example</a></li>
+                <li><a>About</a></li>
+            </ul>
+        </nav>
+    </section>
+
+    <section class="results-body">
+        <div class="flex-container">
+            <div class="flex-child">
+                <div class="results-left">
+                    <h2>Results</h2>
+                    <p>UniProt ID of input model: <mark>P07664</mark></p>
+                    <p>Number of substructure(s): <mark>3</mark></p>
+                </br>
+                <h3>Table Summary<super>
+                    <i class="fa-solid fa-circle-info" onclick="toggleInfo()"></i>
+                </super></h3>
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <th>Start</th>
+                            <th>End</th>
+                            <th>Color</th>
+                        </tr>
+                        <tr>
+                            <td>A</td>
+                            <td>24</td>
+                            <td>96</td>
+                            <td><b class="colcode">blue</b></td>
+                        </tr>                       
+                        <tr>
+                            <td>B</td>
+                            <td>195</td>
+                            <td>361</td>
+                            <td><b class="colcode">green</b></td>
+                        </tr> 
+                        <tr>
+                            <td>C</td>
+                            <td>389</td>
+                            <td>430</td>
+                            <td><b class="colcode">red</b></td>
+                        </tr>                     
+                    </table>
+                </div>
+                <div id="info-box">
+                    <p>For a given substructure:</p>
+                    <ul>
+                        <li>Name - an arbitrary ID assigned to the substructure segment</li>
+                        <li>Start - position of its first residue</li>
+                        <li>End - position of  its last residue</li>
+                        <li>Color - color shown in the 3D structure</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="flex-child">
+                <div class="results-right">
+                    <h2>3D Visualisation</h2>
+                    <div id="jsmol-canvas"></div>
+                </div>
+            </div>
+        </div>
+            
+    </section>
+            
+    </div>
+
+
+    <script type="text/javascript">
+        
+        $(document).ready(function(){
+            var Info = {
+                color: "#FFFFFF",
+                height: 500,
+                width: 500,
+                script: "myJmolscript.spt",
+                use: "HTML5",
+                j2sPath: "jsmol/j2s",
+                serverURL: "jsmol/php/jsmol.php",
+            };
+            $("#jsmol-canvas").html(Jmol.getAppletHtml("myJmol", Info));        
+        });
+    </script>
+    
+    <script src="scripts.js"></script>
+
+</body>
+
+<hr color="#86CD7D">
+
+<footer>
+    <div class="container">
+      <span id="msc_left">MSc Bioinformatics and Systems Biology</span>
+      <img id="ic_logo_right" src="images/Imperial.png" width="200">
+    </div>
+</footer>
+
+</html>

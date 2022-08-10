@@ -1,0 +1,12 @@
+<h1>Input an UniProt ID:</h1>
+<form method="GET" action="/search">
+    <input type="text" name="uniprot"/>
+    <input type="submit" value="Search"/>
+</form>
+<h2>Or</h2>
+
+<h1>Upload an AlphaFold model (.pdb or .cif)</h1>
+<form method="POST" action="/" enctype="multipart/form-data">
+    <input type="file" name="file"/>
+    <input type="submit" value="Upload"/>
+</form>
