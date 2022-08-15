@@ -7,7 +7,7 @@ Download node and npm via link:
 https://nodejs.org/en/download/
 
 Install required npm packges:
-$ npm install express
+$ npm install express /n
 $ npm install express-fileupload
 $ npm install child_process
 $ npm install fs
