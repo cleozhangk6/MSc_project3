@@ -1,7 +1,9 @@
 # MSc_project3
 Web server for MSc Bioinfo project 3
 
-This project uses node.js to build the web server, download node and npm via link: 
+This project uses node.js to build the web server. 
+
+Download node and npm via link: 
 https://nodejs.org/en/download/
 
 Install required npm packges:
