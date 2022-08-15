@@ -1,1 +1,0 @@
-color gray, all; create A,resi 38-70; color 2,A; create B,resi 167-339; color 3,B; create C,resi 365-473; color 4,C; create D,resi 495-588; color 5,D

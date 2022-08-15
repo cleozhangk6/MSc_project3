@@ -1,0 +1,6 @@
+load uploads/AF-P29376-F1-model_v2.pdb; cartoon ONLY; select 69-191
+; color blue; select 209-243
+; color green; select 255-454
+; color red; select 503-672
+; color cyan; select 690-792
+; color yellow

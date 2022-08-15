@@ -1,1 +1,0 @@
-UNIPROTCHAIN    1 LABEL A : RES  ID       3  To    250  : NONE                                                             

@@ -1,1 +1,0 @@
-load uploads/AF-P43238-F1-model_v2.pdb; cartoon ONLY; select 38-70; color blue; select 167-339; color green; select 365-473; color red; select 495-588; color cyan

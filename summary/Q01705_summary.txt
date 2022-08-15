@@ -1,5 +1,0 @@
-UNIPROTCHAIN    1 LABEL A : RES  ID      35  To   1347  : NONE                                                             
-UNIPROTCHAIN    1 LABEL B : RES  ID    1362  To   1438  : NONE                                                             
-UNIPROTCHAIN    1 LABEL C : RES  ID    1454  To   1621  : NONE                                                             
-UNIPROTCHAIN    1 LABEL D : RES  ID    1664  To   1725  : NONE                                                             
-UNIPROTCHAIN    1 LABEL E : RES  ID    1899  To   2106  : NONE                                                             
