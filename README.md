@@ -8,10 +8,10 @@ https://nodejs.org/en/download/
 
 Install required npm packges:
 > npm install express
-$ npm install express-fileupload
-$ npm install child_process
-$ npm install fs
-$ npm install download
+> npm install express-fileupload
+> npm install child_process
+> npm install fs
+> npm install download
 
 Run server by command:
-$ node index.js
+> node index.js
